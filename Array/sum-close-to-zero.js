@@ -28,4 +28,45 @@ function minAbsSumPair(arr){
 }
 
 minAbsSumPair(arr)
-console.log(minAbsSumPair(arr))
+// console.log(minAbsSumPair(arr))
+
+// T.C = O(n2)
+// S.C = O(1)
+
+
+//-------------------------------------2. sorting + 2-pointer-------------------------------------------
+let newArr = arr
+function minAbsSumPairBy2Pointer(newArr){
+    if(newArr.length<2){
+        console.log("Invalid Input")
+        return 
+    }
+    newArr.sort((a, b) => a - b);
+    let l = 0;
+    let r = newArr.length-1
+    let min_l = l; 
+    let min_r = newArr.length-1;
+    let min_sum = Infinity
+
+    while(l<r){
+        let sum = newArr[l]+newArr[r];
+        if(Math.abs(sum)<Math.abs(min_sum)){
+            min_sum = sum;
+            min_l = l;
+            min_r = r;
+        }
+        if(sum<0){
+            l++;
+        }else{
+            r--;
+        }
+    }
+    // console.log('ans==>', newArr[min_l], newArr[min_r], min_sum)
+    return [newArr[min_l], newArr[min_r]].join(",")
+
+}
+minAbsSumPairBy2Pointer(newArr)
+// console.log(minAbsSumPairBy2Pointer(newArr))
+
+// T.C = O(nlog(n))
+// S.C = O(1)
