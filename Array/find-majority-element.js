@@ -75,11 +75,10 @@ function findMajorityByObject(arr){
     let majorityElement = null
     let maxCount = -1
     for(let key of arr){
-        let count = 0;
+        let count = 1;
         // console.log('key', key, obj[key])
         if(obj[key] === undefined){
-            obj[key]= count++;
-            obj[key]++
+            obj[key] = count;
         }else{
             obj[key]++
         }
@@ -146,7 +145,7 @@ function findMajorityByMoore(arr, n){
 }
 
 findMajorityByMoore(arr, n)
-console.log(findMajorityByMoore(arr, n))
+// console.log(findMajorityByMoore(arr, n))
 
 // T.C = O(n)
 // S.C = O(1)
