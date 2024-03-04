@@ -5,6 +5,7 @@
 function isEven(num) {
     // Check the least significant bit
     // If the LSB is 0, then the number is even; otherwise, it's odd
+    console.log(num & 1)
     return (num & 1) === 0;
 }
 
